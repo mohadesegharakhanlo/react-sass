@@ -1,0 +1,157 @@
+.hero_slider{
+    height: 100vh;
+    max-height: 1080px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 50px;
+    margin-top: -100px;
+    @include flex(center , space-between);
+    @include tablet{
+        margin-top:-50px;
+    }
+    
+    &__item{
+        @include flex(center , space-between);
+        visibility: hidden;
+        position: absolute;
+        opacity: 0;
+        inset: 0;
+        pointer-events: none;
+        width: 95%;
+        @include tablet{
+            @include flex(center , start);
+            flex-direction: column-reverse;
+            height: 100%;
+            
+        }
+        &.active{
+            visibility: visible;
+            opacity: 1;
+            pointer-events: visible;
+        }
+        &__info{
+            margin-left:5rem;
+            width: 58%;
+            @include tablet{
+                width: 100%;
+                flex-wrap: 1;
+               
+            }
+            &__title{
+                margin-bottom: 30px;
+                font-size: 4rem;
+                font-weight: 600;
+                overflow: hidden;
+            }
+            &__description{
+                font-size: 2rem;
+                color: $text-second-color;
+            }
+            &__btn{
+                margin-top: 20px;
+            }
+            &__title > span, &__description > span, &__btn button{
+                display: block;
+                transform: translateY(-100%);
+                transition: transform 0.3s ease-in ;
+            }
+        }
+        &.active &__info{
+            &__title > span, &__description > span, &__btn button{
+                transform: translateX(0); 
+            }
+        }
+        &__image{
+            flex-wrap: 1;
+            position: relative;
+            height: 100%;
+            z-index: 99;
+            @include tablet{
+                width: 100%;
+                height: 60%;
+                @include flex(center , center);
+                flex-wrap: unset;
+                z-index: 98;
+                
+            }
+           
+            img{
+                height: 100vh;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                transform: scale(1) rotate(30deg);
+                transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                @include tablet{
+                    position: relative;
+                    height: 100%;
+                }
+               
+
+            }
+
+            &__shape{
+                position: absolute;
+                right: 0;
+                top: 50%;
+                width: 320px;
+                height: 320px;
+                border-radius: 70% 30% 29% 71% / 53% 40% 60% 47% ;
+                transform: translate(0 , -50%);
+                transition: border-radius 13s ease;
+                animation: border 10s infinite;
+                @include tablet{
+                    width: 200px;
+                    height: 200px;
+                    right: 35%;
+                    top: 40%;
+                }
+            }
+           
+        }
+        &.active &__image > img{
+            transform: scale(1) rotate(0deg);
+        }
+    }
+    // &__control{
+    //     @include flex(center , center);
+    //     position: absolute;
+    //     left: 47%;
+    //     bottom: 50px;
+    //     font-size: 30px;
+        
+    //     &__item{
+    //         cursor: pointer;
+    //         &__index{
+    //             font-size: 25px;
+    //         }
+    //         &:hover{
+    //             color: $main-color;
+    //         }
+    //     }
+
+    // }
+    &__control{
+        font-size: 30px;
+        cursor: pointer;
+        z-index: 100;
+        color: $text-second-color;
+        @include tablet{
+            margin-top: -70%;
+            z-index: 98;
+        }
+    }
+  
+}
+@keyframes border{
+    0%{
+        border-radius:70% 30% 29% 71% / 53% 40% 60% 47% ;
+    }
+    50%{
+        border-radius: 39% 61% 65% 35% / 30% 62% 38% 70% ;
+    }
+    100%{
+        border-radius:70% 30% 29% 71% / 53% 40% 60% 47% ;
+
+    }
+}

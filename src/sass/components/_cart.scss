@@ -1,0 +1,30 @@
+.cart{
+    @include flex(flex-start , flex-start);
+   
+    &__info{
+        width: 30%;
+        margin-left: 3rem;
+        margin-top: 1rem;
+        padding: 1.2rem;
+        font-size: 18px;
+        @include flex(flex-start , center);
+        flex-direction: column;
+        gap: 20px;
+        box-shadow: $box-shadow;
+        &__price{
+            width: 100%;
+            @include flex(center , space-between);
+            
+        }
+        &__btn{
+            @include flex(space-between , center);
+            width: 100%;
+            gap: 15px;
+            flex-direction: column;
+        }
+    }
+    &__items{
+       
+    }
+
+}

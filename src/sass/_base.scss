@@ -1,0 +1,74 @@
+@import './variables';
+@import './mixins';
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    user-select: none;
+}
+html{
+    font-size: 13px;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: unset;
+}
+
+@each $i in $numbers {
+    .grid-col-#{$i} {
+        grid-template-columns: repeat($i,1fr);
+    }
+}
+@each $i in $numbers {
+    .grid-col-md-#{$i} {
+        @include tablet{
+            grid-template-columns: repeat($i,1fr);
+        }  
+    }
+}
+
+@each $i in $numbers {
+    .grid-col-sm-#{$i} {
+        @include mobile{
+            grid-template-columns: repeat($i,1fr);
+        }  
+    }
+}
+@each $color , $val in $colors{
+    .color-#{$color}{
+        color:$val;
+    }
+    .bg-#{$color}{
+        background-color: $val;
+    }
+}
+.container{
+    width: 100%;
+    max-width: 1620px;
+    padding: 0px 50px;
+    margin: auto;
+
+    @include tablet{
+        padding: 0px 20px;
+    }
+    @include mobile{
+        padding: 0px 10px;
+    }
+}
+.main{
+    margin-top: $header-height;
+    margin-bottom: 2rem;
+    min-height: 100vh;
+    @include tablet{
+        margin-top: calc(#{$header-tablet-height}+20);
+    }
+    @include mobile{
+        margin-top: calc(#{$header-mobile-height}+10);
+    }
+}
+.grid{
+    display: grid;
+}

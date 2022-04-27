@@ -1,0 +1,137 @@
+.product{
+    @include flex(flex-start , flex-start);
+    &__images{
+       
+        @include flex(flex-start , flex-start);
+
+        width: 60%;
+        flex-wrap: wrap;
+
+        &__list{
+            width: 20%;
+            &__item{
+                cursor: pointer;
+                &__image01{
+                    position: relative;
+                    padding-top: 200%;
+                    img{
+                        position: absolute;
+                        top:0;
+                        left: 5%;
+                        height: 100%;
+                    }
+                }
+                &__image02{
+                    position: relative;
+                    padding-top: 200%;
+                    img{
+                        position: absolute;
+                        top:0;
+                        left: 5%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        &__main{
+            flex-grow: 1;
+            padding-top: 72%;
+            position: relative;
+
+            img{
+                position: absolute;
+                top: 0;
+                left: 30%;
+                height: 100%;
+            }
+        }
+
+    }
+    &__info{
+        &__price{
+            margin-top:1.5rem;
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: $main-color;
+        }
+        &__items{
+            &__title{
+                margin-top: 1.5rem;
+            }
+            &__color{
+                margin-top: 1rem;
+                @include flex(flex-start , flex-start);
+                &__items{
+                    margin-right: 1rem;
+                    .circle{
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        border: 1px solid $text-second-color;
+                        cursor: pointer;
+                        &.active{
+                            border: 2px solid black;
+                            border-radius: 50%;
+                        }
+                    }
+                    .circle:hover{
+                        border: 2px solid black;
+                    }
+
+                }
+
+                
+
+            }
+            &__size{
+                margin-top: 1rem;
+                @include flex(flex-start , flex-start);
+                &__items{
+                    margin-right: 1rem;
+                    .circlesize{
+                        @include flex(center , center);
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        border: 1px solid  $text-second-color;
+                        cursor: pointer;
+                    }
+                    .circlesize:hover{
+                        border: 2px solid black;
+                    }
+
+                }
+                &.active{
+                    border: 2px solid black;
+                }
+
+            }
+            &__quantity{
+                @include flex(flex-start , flex-start);
+                margin-top: 1rem;
+                &__btn{
+                    @include flex(center , center);
+                    border: 1px solid $main-color;
+                    width: 30px;
+                    height: 30px;
+                    font-size: 1rem;
+                    cursor: pointer;
+                }
+                &__input{
+                    @include flex(center , center);
+                    width: 50px;
+                    height: 30px;
+                    border-top: 1px solid $main-color;
+                    border-bottom: 1px solid $main-color;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+        &__button{
+            margin-top: 5rem;
+            Button{
+                margin-right: 1rem;
+            }
+        }
+    }
+}
